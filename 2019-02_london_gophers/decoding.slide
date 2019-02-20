@@ -1,0 +1,101 @@
+Decoding binary network protocols
+London Gophers
+20 Feb 2019
+
+Axel Wagner
+https://blog.merovius.de/
+@TheMerovius
+
+* About me
+
+.html bio.html
+
+- Previously Site Reliability Engineer at Google
+- Using Go for ~6 years
+- Go purist: You don't need generics, error handling is great, GOPATH is the best since sliced bread, nil is fine,…
+
+* FAKEPROT
+
+- TCP-based
+- Client sends magic `"FAKEPROT"`, server responds with magic `"PROTFAKE"`
+- Client sends a series of messages, each answered by the server with a message of its own
+- Wire format:
+
+  +-----------+-------------+-------------------+
+  |  kind[4]  |  length[4]  |  payload[length]  |
+  +-----------+-------------+-------------------+
+
+- `payload` is a `kind`-dependent series of fixed-width integers and length-prefixed strings
+
+* Basic parser
+
+- We start with defining some constants and an interface for the user of our parser:
+
+.code parser1.go /START DEFINITIONS/,/END DEFINITIONS/
+
+* Basic parser (cont)
+
+- We then go into the actual parsing:
+
+.code parser1.go /START SERVE/,/END SERVE/
+
+* Basic parser (cont)
+
+- Lastly, we parse the actual request:
+
+.code parser1.go /START FOOREQ/,/END FOOREQ/
+
+* Helpers
+
+.code parser2.go /START HELPERS/,/END HELPERS/
+
+* Helpers (cont)
+
+.code parser2.go /START DECODE/,/END DECODE/
+
+* Error handling
+
+- Distracts from protocol-structure
+- No cleanups necessary - parsing is side-effect free
+- Error's can't be "handled" - broken data is irrecoverable
+- Go has no exceptions - but it _does_ have panic/recover
+
+.image purists.jpg
+
+* panic/recover
+
+- Call to `panic` unwinds the stack
+- A `defered` call to `recover` aborts unwinding
+- Without `recover`, the program crashes
+- We want to prevent accidental crashes
+- We _also_ want to prevent accidental recovers
+
+* do-Pattern
+
+.code do.go /START/,
+
+* decoder-methods
+
+.code decoder.go /START/,
+
+* parsing
+
+- Using `decoder`:
+
+.code parser3.go /START FOOREQ/,/END FOOREQ/
+
+* parsing (cont)
+
+.code parser3.go /START SERVE/,/END SERVE/
+
+* Should you?
+
+- Clarity of control-flow
+- Crashes in goroutines
+- Upfront investment in understanding
+
+* Takeaways
+
+- You _can_ use panic/recover for control flow
+- Doesn't mean you _should_ - do the tradeoff yourself
+- Don't let Go purists get you down. It's okay to disagree with them
