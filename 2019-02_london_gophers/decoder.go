@@ -8,7 +8,7 @@ import (
 // START OMIT
 // read tries to fully fill p or aborts parsing.
 func (d *decoder) read(p []byte) {
-	_, err := io.ReadFull(d)
+	_, err := io.ReadFull(d.r, p)
 	// ReadFull returns io.EOF if zero bytes where read. We expect > 0 bytes.
 	if err == io.EOF { err = io.ErrUnexpectedEOF }
 	d.check(err)
