@@ -1,0 +1,256 @@
+Generics in Go 1.18
+Introduced using a practical example
+
+Axel Wagner
+Software Engineer, Infront Quant
+https://blog.merovius.de/
+@TheMerovius
+
+* The example
+
+* Providers
+
+A service has its business logic split into _providers_
+
+.code provider.go
+
+: ID is used to route messages to the right provider
+: RequestType/ResponseType are used for allocating messages and dynamic type checking
+: Message is an interface embedding json.Marshaler etc.
+: Publisher allows to send multiple responses
+: ResponseIterator allows receiving multiple responses
+
+* Implementing providers
+
+An implementation of a provider is roughly
+
+.code usage.go
+
+: New might take dependencies etc.
+: dep is a different provider, this one depends on
+: Note the type-assertions for Request and subresp
+
+* Problems
+
+- Possible to pass wrong request type to Call/Stream/Publish
+- Request/Responses need type-assertions and extra variables
+- Slice request/responses use pointers
+- `RequestType()`/`ResponseType()` is boilerplate
+
+: For simplicity, the reflect logic just assumes request/responses are pointers
+
+* Generics
+
+* Type parameters
+
+.code provider_generic_1.go
+
+: Package-scoped declarations can have an extra argument list using square brackets
+: These can be used as types in the declaration
+: The declaration has to be instantiated, substituting the specific types used
+: Publish now checks that ts argument matches the type declared by the provider
+: We don't need type-assertions anymore
+: No more need for Request/ResponseType methods
+
+* Type parameters (cont)
+
+Now an implementation is
+
+.code usage_generic_1.go ,/INFER/
+
+: Request/ResponseType methods are gone
+: We don't need a temporary variable for the sub response anymore
+: We can instantiate using non-pointers, if we want, for slices
+: Publish can infer its type argument
+: We could still accidentally instantiate Call with the wrong arguments
+
+* Type-inference
+
+It is a bit unwieldy having to add the instantiation to every type. Luckily,
+the compiler can sometimes _infer_ these types, allowing us to omit them:
+
+.code usage_generic_1.go /INFER/,/NOINFER/
+
+*Limitations*
+
+- Type-inference only works based on the *arguments* of a function call:
+
+.code usage_generic_1.go /NOINFER/,$
+
+- Thus it only works on *calls*, not for generic types or storing in a variable
+
+* Making Call safe
+
+We can make `Call` even more type-safe, by using a little trick:
+
+.code provider_generic_2.go
+
+: Even though ID is just a string, we can add parameters to it
+: Now the ID also carries information what Request/Response is needed
+: That information can then be used by Call/Stream to type-check their instantiation and arguments (next slide)
+
+* Making Call safe (cont)
+
+And on the implementation side:
+
+.code usage_generic_2.go ,/SPLIT/
+
+.code usage_generic_2.go /SPLIT/,/INFER/
+
+Bonus: `dep.ID` is an argument and "carries" request/response types. So we can
+now infer type arguments:
+
+.code usage_generic_2.go /INFER/,$
+
+: Now, if we instantiate Call with the wrong arguments, it can tell based on dep.ID and the compiler complains
+: The fact that type-inference only considers arguments is another benefit of the ID trick.
+: Otherwise, the response type would not appear in the call and could not get infered.
+
+* Constraints
+
+Remember the `Message` interface? In our new version, requests and responses no
+longer need to comply with it, we can use `any` type. We can fix that by adding
+it as a _constraint_:
+
+.code provider_generic_3.go /type ID/,/func usage/
+
+* Constraints (cont)
+
+Constraints can be any interface type. At instantiation, the compiler checks
+that the type-arguments implement that interface:
+
+.code provider_generic_3.go /func usage/,/ID/
+
+The compiler allows a function to call exactly the methods defined by the constraints:
+
+.code provider_generic_3.go /CALL IMPL/,$
+
+`any` is just a new, predeclared alias for `interface{}`.
+
+* Type sets
+
+So far, constraints only allow calling _methods_. For using _operators_, we
+introduce _type_sets_:
+
+- `T` is the set containing only `T`
+- `~T` is the set containing all types with _underlying_type_ `T`
+- `S|T` is the set of all types which are in the set `S` or the set `T`
+
+An interface can now contain a type set:
+
+.code type_sets.go
+
+Interfaces containing such type-sets can _only_ be used as constraints.
+
+* Type sets (cont)
+
+The compiler allows *using*an*operation* in a generic function, if it is
+supported by all types in the type set of the constraint:
+
+.code type_sets_use.go /func Concat/,/^}/
+
+* Type sets (cont)
+
+The compiler allows an *instantiation*, if the type argument is in the type set of the constraint:
+
+.code type_sets_use.go /func usage/,/^}/
+
+* Type sets (cont)
+
+It is also possible to use type-set elements _directly_ in a constraint:
+
+.code join_example.go ,/SPLIT/
+
+.code join_example.go /SPLIT/,$
+
+* The constraints package
+
+There is a new package `golang.org/x/exp/constraints`, for commonly used type sets:
+
+.code constraints_pkg.go
+
+* comparable
+
+There is one special predeclared interface `comparable`, implemented by
+anything that is (safely) comparable using `==` and `!=`:
+
+- Any string/numeric/boolean/pointer/channel type
+- Any struct-type with only comparable fields
+- Any array-type with a comparable element type
+- *Not* function, slice, map *or*interface*types*
+
+It is needed to use `==` and `!=` or to use a type-parameter in a map:
+
+.code comparable.go ,/INTERFACE/
+
+Importantly, interface-types do *not* implement `comparable` (see [[https://github.com/golang/go/issues/51338][#51338]]):
+
+.code comparable.go /INTERFACE/,$
+
+* Pointer methods
+
+Back to the example. There is a problem with our `Message` interface.
+
+.code pointer_methods.go /type Message/,/END DEFINITION/
+
+* Pointer methods (cont)
+
+If we try to use this, we get into trouble, though:
+
+.code pointer_methods.go /type Request/,/^}/
+
+* Pointer methods (cont)
+
+`Call` needs to accept/return the plain types, but call the methods on their pointers:
+
+.code pointer_methods_2.go
+
+* Pointer methods (cont)
+
+We thus have to pass *both* the base and the pointer types and constrain the
+pointer type to have the relevant methods:
+
+.code pointer_methods_fix.go /type Message/,$
+
+* Library changes
+
+There are a couple of new packages, taking advantage of generics:
+
+- `golang.org/x/exp/constraints`: A set of useful constraints to be used with
+  type parameters.
+- `golang.org/x/exp/maps`: Various functions useful with maps of any type.
+- `golang.org/x/exp/slices`: Various functions useful with slices of any type.
+- `go/*` have been updated to be able to write tools for generic code.
+
+* Limitations
+
+* No higher abstractions
+
+Every generic function/type must be fully instantiated before use:
+
+.code higher_abstraction.go
+
+One design goal was to allow [[https://research.swtch.com/generic][different implementation strategies]].
+
+Allowing higher abstraction would require a boxing implementation.
+
+* No extra type parameters on methods
+
+It is not possible to add extra type parameters to methods:
+
+.code method_parameters.go ,/SPLIT/
+
+Use functions instead:
+
+.code method_parameters.go /SPLIT/,$
+
+This is because Go allows interface type-assertions, which would require
+runtime implementation strategies:
+
+.code method_type_assertion.go
+
+* Other limitations
+
+- No embedding of type parameters.
+- A union element with more than one term may not contain an interface type with a non-empty method set.
+- A couple of minor limitations, to be addressed in Go 1.19
