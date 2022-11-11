@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="571.34998"
+   height="368.02603"
+   viewBox="0 0 151.16967 97.373551"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="acme_vpn_v2.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2.3786088"
+     inkscape:cx="345.15974"
+     inkscape:cy="169.63697"
+     inkscape:window-width="2560"
+     inkscape:window-height="1342"
+     inkscape:window-x="0"
+     inkscape:window-y="80"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="255.14961"
+       y="249.88812"
+       width="254.57359"
+       height="120.02532"
+       id="rect341" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-26.877211,-18.825443)">
+    <rect
+       style="opacity:0.993595;fill:#00fc31;fill-opacity:0.180119;stroke:none;stroke-width:0.876942;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect30309"
+       width="133.73917"
+       height="44.768623"
+       x="27.373741"
+       y="71.272522" />
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect225"
+       width="66.227509"
+       height="21.916798"
+       x="27.127211"
+       y="19.075443" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.48975"
+       y="26.834892"
+       id="text229"><tspan
+         sodipodi:role="line"
+         id="tspan227"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="59.48975"
+         y="26.834892">CA</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="59.48975"
+         y="35.654343"
+         id="tspan22417">(letsencrypt.org)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text339"
+       style="font-style:normal;font-weight:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect341);display:inline;fill:#000000;fill-opacity:1;stroke:none" />
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect345"
+       width="52.675381"
+       height="16.573633"
+       x="125.12151"
+       y="21.657932" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:6.35px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="151.0407"
+       y="27.824745"
+       id="text349"><tspan
+         sodipodi:role="line"
+         id="tspan347"
+         style="font-size:6.35px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="151.0407"
+         y="27.824745">DNS Server</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:6.35px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="151.0407"
+         y="35.762245"
+         id="tspan22157">(cloudflare.com)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="61.224781"
+       y="46.200386"
+       id="text3442"><tspan
+         sodipodi:role="line"
+         id="tspan3440"
+         style="stroke-width:0.264583"
+         x="61.224781"
+         y="46.200386" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)"
+       d="M 54.701081,82.575726 54.889862,44.34263"
+       id="path22169"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)"
+       d="M 78.476862,84.472303 122.31829,40.465773"
+       id="path22219"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)"
+       d="M 96.692774,30.696119 122.14411,30.552223"
+       id="path22269"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="63.583511"
+       y="-57.338017"
+       id="text22377"
+       transform="rotate(90.505487)"><tspan
+         sodipodi:role="line"
+         id="tspan22375"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="63.583511"
+         y="-57.338017">ACME</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="63.583511"
+         y="-48.518566"
+         id="tspan22379">DNS-01</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="95.548737"
+       y="102.17429"
+       id="text22377-6"
+       transform="rotate(-0.20663656)"><tspan
+         sodipodi:role="line"
+         id="tspan22375-2"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="95.548737"
+         y="102.17429">ACME</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="95.548737"
+         y="110.99374"
+         id="tspan22379-6">NOP</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="101.88435"
+       y="27.708065"
+       id="text22383"><tspan
+         sodipodi:role="line"
+         id="tspan22381"
+         style="stroke-width:0.264583"
+         x="101.88435"
+         y="27.708065">DNS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="27.670628"
+       y="113.50197"
+       id="text22387"
+       transform="rotate(-45.181956)"><tspan
+         sodipodi:role="line"
+         id="tspan22385"
+         style="font-size:5.64444px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="27.670628"
+         y="113.50197">Cloudflare API</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="27.670628"
+         y="122.32142"
+         id="tspan22389">HTTP</tspan></text>
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect111"
+       width="42.699913"
+       height="21.193295"
+       x="114.9995"
+       y="92.176422" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="117.54795"
+       y="99.714859"
+       id="text167-9"><tspan
+         sodipodi:role="line"
+         id="tspan165-1"
+         style="stroke-width:0.264583"
+         x="117.54795"
+         y="99.714859">Webserver</tspan></text>
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect219-2"
+       width="47.193886"
+       height="29.440523"
+       x="28.147558"
+       y="86.088593" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="52.022629"
+       y="94.614677"
+       id="text223"><tspan
+         sodipodi:role="line"
+         style="text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="52.022629"
+         y="94.614677"
+         id="tspan22155">ACME proxy</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="38.746063"
+       y="103.60516"
+       id="text3446-7"><tspan
+         sodipodi:role="line"
+         id="tspan3444-0"
+         style="fill:#d40000;stroke-width:0.264583"
+         x="38.746063"
+         y="103.60516">accKey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="124.46023"
+       y="109.48579"
+       id="text3450-9"><tspan
+         sodipodi:role="line"
+         id="tspan3448-3"
+         style="fill:#d40000;stroke-width:0.264583"
+         x="124.46023"
+         y="109.48579">tlsKey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="41.789322"
+       y="112.67168"
+       id="text3446-7-6"><tspan
+         sodipodi:role="line"
+         id="tspan3444-0-0"
+         style="fill:#d40000;stroke-width:0.264583"
+         x="41.789322"
+         y="112.67168">cfKey</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart);marker-end:url(#TriangleStart)"
+       d="M 78.793437,103.52958 111.5493,103.39965"
+       id="path29733"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="138.32861"
+       y="79.529419"
+       id="text30313"><tspan
+         sodipodi:role="line"
+         id="tspan30311"
+         style="stroke-width:0.264583"
+         x="138.32861"
+         y="79.529419">VPN</tspan></text>
+  </g>
+</svg>

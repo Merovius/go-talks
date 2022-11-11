@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="883.94763"
+   height="580.40558"
+   viewBox="0 0 233.8778 153.56564"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="acme_alpn.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="1.1893044"
+     inkscape:cx="548.64003"
+     inkscape:cy="344.31891"
+     inkscape:window-width="2560"
+     inkscape:window-height="1390"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <marker
+       style="overflow:visible"
+       id="marker1322"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path1320" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="TriangleStart"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="255.14961"
+       y="249.88812"
+       width="254.57359"
+       height="120.02532"
+       id="rect341" />
+    <marker
+       style="overflow:visible"
+       id="TriangleStart-3"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="TriangleStart"
+       markerWidth="5.3244081"
+       markerHeight="6.155385"
+       viewBox="0 0 5.3244081 6.1553851"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-6" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-26.877211,-18.825443)">
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect219"
+       width="151.81372"
+       height="29.420776"
+       x="27.181259"
+       y="142.72031" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="59.318352"
+       y="154.69695"
+       id="text223"><tspan
+         sodipodi:role="line"
+         id="tspan221"
+         style="stroke-width:0.264583"
+         x="59.318352"
+         y="154.69695">Webserver</tspan></text>
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect225"
+       width="98.525154"
+       height="32.70615"
+       x="27.127211"
+       y="19.075443" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="29.817961"
+       y="37.7015"
+       id="text229"><tspan
+         sodipodi:role="line"
+         id="tspan227"
+         style="stroke-width:0.264583"
+         x="29.817961"
+         y="37.7015">Certificate Authority (CA)</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text339"
+       style="font-style:normal;font-weight:normal;font-size:26.6667px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;white-space:pre;shape-inside:url(#rect341);display:inline;fill:#000000;fill-opacity:1;stroke:none" />
+    <rect
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.5;stroke-linejoin:round;stroke-dasharray:none"
+       id="rect345"
+       width="52.675381"
+       height="16.573633"
+       x="207.82964"
+       y="26.288225" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="214.70152"
+       y="37.217545"
+       id="text349"><tspan
+         sodipodi:role="line"
+         id="tspan347"
+         style="stroke-width:0.264583"
+         x="214.70152"
+         y="37.217545">DNS Server</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker1322)"
+       d="M 45.432485,142.56102 46.292059,55.284219"
+       id="path1318"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-140.196"
+       y="40.334476"
+       id="text1368"
+       transform="rotate(-90.104096)"><tspan
+         sodipodi:role="line"
+         id="tspan1366"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-140.196"
+         y="40.334476">1. NewAccount(&quot;admin@example.com&quot;,accKey)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="M 57.274055,142.675 57.475409,55.040091"
+       id="path1480"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-129.18204"
+       y="54.472065"
+       id="text1516"
+       transform="rotate(-90.352774)"><tspan
+         sodipodi:role="line"
+         id="tspan1514"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-129.18204"
+         y="54.472065">3. NewOrder(&quot;example.com&quot;)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-129.13353"
+       y="66.96714"
+       id="text1520"
+       transform="rotate(-90.105544)"><tspan
+         sodipodi:role="line"
+         id="tspan1518"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-129.13353"
+         y="66.96714">4. Challenge(&quot;ALPN-01&quot;,Token)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="M 62.90996,51.68303 62.603114,139.2333"
+       id="path2272"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="M 81.468417,142.61285 81.282024,55.355996"
+       id="path3094"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-110.38155"
+       y="79.763214"
+       id="text3130"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan3128"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-110.38155"
+         y="79.763214">6. Accept()</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 125.75827,34.410302 78.75566,-0.346548"
+       id="path3200"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="135.87097"
+       y="31.822254"
+       id="text3234"><tspan
+         sodipodi:role="line"
+         id="tspan3232"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="135.87097"
+         y="31.822254">7. Lookup(&quot;A/AAAA&quot;, &quot;example.com&quot;)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="M 118.73051,142.60177 118.12502,55.114257"
+       id="path3282"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-119.48423"
+       y="116.56295"
+       id="text3318"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan3316"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-119.48423"
+         y="116.56295">10. FinalizeOrder(CSR)</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 123.69761,51.755402 -0.39936,87.412658"
+       id="path3320"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart-3)"
+       d="M 100.79935,139.16759 100.19386,51.680171"
+       id="path3282-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-start:url(#TriangleStart-3)"
+       d="m 105.23728,55.2005 -0.39936,87.41259"
+       id="path3320-5"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-122.31716"
+       y="127.43475"
+       id="text3358"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan3356"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-122.31716"
+         y="127.43475">11. Certificate(&quot;example.com&quot;)</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="61.224781"
+       y="46.200386"
+       id="text3442"><tspan
+         sodipodi:role="line"
+         id="tspan3440"
+         style="stroke-width:0.264583"
+         x="61.224781"
+         y="46.200386" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="49.831707"
+       y="165.22119"
+       id="text3446"><tspan
+         sodipodi:role="line"
+         id="tspan3444"
+         style="fill:#d40000;stroke-width:0.264583"
+         x="49.831707"
+         y="165.22119">accKey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#d40000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="86.429573"
+       y="165.59633"
+       id="text3450"><tspan
+         sodipodi:role="line"
+         id="tspan3448"
+         style="fill:#d40000;stroke-width:0.264583"
+         x="86.429573"
+         y="165.59633">tlsKey</tspan></text>
+    <path
+       id="rect10793"
+       style="opacity:0.993595;fill:none;stroke:#000000;stroke-width:0.499999;stroke-linejoin:round"
+       d="m 119.55651,144.52078 h 43.80106 l 12.77983,11.00964 v 14.27978 l -56.88728,-0.2757 z"
+       sodipodi:nodetypes="cccccc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:7.05556px;line-height:0.65;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="122.30774"
+       y="150.16328"
+       id="text13047"><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="122.30774"
+         y="150.16328"
+         id="tspan14557">5. self-sign certificate</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="122.30774"
+         y="154.7494"
+         id="tspan14566">AN: &quot;example.com&quot;</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="122.30774"
+         y="159.33551"
+         id="tspan13053">acmeID:</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:start;text-anchor:start;stroke-width:0.264583"
+         x="122.30774"
+         y="163.92163"
+         id="tspan14568">&quot;SHA256(token,accKey)&quot;</tspan><tspan
+         sodipodi:role="line"
+         style="text-align:end;text-anchor:end;stroke-width:0.264583"
+         x="122.30774"
+         y="168.50774"
+         id="tspan13051" /></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 163.43906,144.53776 -0.0905,11.10204 12.75446,-0.0257"
+       id="path14564"
+       sodipodi:nodetypes="ccc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#TriangleStart)"
+       d="m 207.55959,38.352887 -78.4138,0.131188"
+       id="path14572"
+       sodipodi:nodetypes="cc" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="140.13033"
+       y="43.243477"
+       id="text14608"><tspan
+         sodipodi:role="line"
+         id="tspan14606"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="140.13033"
+         y="43.243477">8. example.com=11.13.23.42</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-100.54858"
+       y="90.4067"
+       id="text14650"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan14648"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-100.54858"
+         y="90.4067">9. TLS Handshake</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-100.54858"
+         y="94.816422"
+         id="tspan16152">nextProto=acme-tls/1</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-100.54858"
+         y="99.226151"
+         id="tspan16154">SNI=example.com</tspan><tspan
+         sodipodi:role="line"
+         style="font-size:3.52778px;text-align:center;text-anchor:middle;stroke-width:0.264583"
+         x="-100.54858"
+         y="103.63587"
+         id="tspan16156" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:3.52778px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
+       x="-117.72771"
+       y="109.14164"
+       id="text16449"
+       transform="rotate(-90)"><tspan
+         sodipodi:role="line"
+         id="tspan16447"
+         style="font-size:3.52778px;stroke-width:0.264583"
+         x="-117.72771"
+         y="109.14164">11. self-signed cert</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,112 @@
+# Tailscale mit eigener domain
+20:00 10 Nov 2022
+
+Merovius
+
+## Tailscale
+
+- VPN auf WireGuard Basis
+- Key distribution
+- Auto config
+- NAT traversal
+- MagicDNS
+- Access Control
+- …
+
+[Siehe c¼h 2022-08-18](https://www.noname-ev.de/chaotische_viertelstunde.html?latest=463#c14h_454)
+
+## HTTPS?
+
+- Traffic ist auf Netzwerk schon verschlüsselt
+- Aber: Browser wissen das nicht
+- Das schränkt Laden von Resourcen und Web APIs ein
+
+## Automatic Certificate Management Environment (ACME)
+
+- Vollautomatische Verteilung von TLS Zertifikaten
+- Größter Anbieter Let's Encrypt
+- Offenes Protokoll (RFC 8555)
+- Viel Software kann von Haus TLS über ACME
+
+## ACME Protokoll (ALPN-01 Challenge)
+
+![ACME ALPN-01 challenge diagram](acme_alpn.svg)
+
+## ACME Protokoll (DNS-01 Challenge)
+
+![ACME DNS-01 challenge diagram](acme_dns.svg)
+
+## Tailscale ACME
+
+- Zufällige domain (`tail3e2ba3.ts.net`, `ocelot-chicken.ts.net`,…)
+- `tailscale.com` macht DNS server und löst `<host>.tail3e2ba3.ts.net` auf
+  VPN IP auf
+- `tailscaled` macht ACME DNS-01, mit `tailscale.com` als DNS server
+
+![ACME tailscale diagram](acme_tailscale.svg)
+
+## DNS
+
+## Tailscale local API
+
+.code tailscale_api.go
+
+## DNS Server
+
+.code dns_server.go
+
+## DNS Handler
+
+.code dns_handler.go /handler/,
+
+## VPN TLS certs
+
+![ACME VPN diagram](acme_vpn_v1.svg)
+
+- Webserver muss ACME+DNS-01 sprechen
+- Webserver muss Cloudflare (CF) API sprechen
+- Webserver braucht ACME und CF keys
+
+## VPN ACME Proxy
+
+![ACME VPN diagram](acme_vpn_v2.svg)
+
+- Webserver muss nur ACME sprechen
+- ACME und CF keys sind zentral verwaltet
+- Zertifikate können zentral revoked werden
+
+## ACME Proxy
+
+## Handler Interface
+
+.code acme_handler.go
+
+## Peer Authentication
+
+.code acme_creds.go /func main/,
+
+## Authorization
+
+.code acme_auth.go
+
+## New Order
+
+.code acme_order.go /NewOrder/,
+
+## Finalize
+
+.code acme_finalize.go
+
+## Demo
+
+## TODO
+
+- Code aufräumen und veröffentlichen
+- Android Split DNS Problem
+- Web UI für ACME Proxy
+- Mehr client Implementationen testen
+- TLS-ALPN-01 challenge?
+- Voller RFC 8555 support
+- Virtual Hosts
+- Öffentliches Gateway
+- …

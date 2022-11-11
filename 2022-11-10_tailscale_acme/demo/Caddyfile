@@ -1,0 +1,6 @@
+hix.merovi.us
+
+tls {
+	ca "https://acme.merovi.us/"
+}
+respond "Hello, world!"
