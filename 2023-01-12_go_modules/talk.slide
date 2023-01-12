@@ -1,0 +1,90 @@
+# Go module ecosystem
+c¼h 2023-01-12
+
+Merovius
+
+## GOPATH (die "alte" Welt)
+
+## Pakete
+
+- Kompilierungseinheit
+- `.go` Dateien in einem Verzeichnis
+- `$GOPATH/{src,pkg,bin}`
+- Import paths
+
+.code imports.go /import/,/\)/
+
+## go get
+
+- `go get gonih.org/stack`
+- `curl https://rsc.io/quote/buggy?go-get=1`
+- `curl https://rsc.io/quote?go-get=1`
+- `git clone https://github.com/rsc/quote $GOPATH/src/rsc.io/quote`
+
+## Modules (die "neue" Welt)
+
+## Module
+
+- Versionsierungseinheit
+- Sammlung von Paketen
+- Verteilung als `zip` (mit Automagie für VCS fallback)
+- `go.mod`:
+
+.code go.mod
+
+## Minimum Version Selection (MVS)
+
+- `go.mod` enthält nur *minimale* Versionen von dependencies
+- [Versions Selektion mit maximalen Versionen ist NP-vollständig](https://research.swtch.com/version-sat)
+- Für reproduzierbare builds wird "Minimum Version Selection" benutzt:
+
+.image buildlist.svg
+
+## Semantic Import Versioning (SIV)
+
+Wenn eine neue Major Version benutzt wird, muss der import path eine Version spezifizieren:
+
+```go
+import "rsc.io/quote/v2"
+```
+
+- Erlaubt, verschiedene Major Versionen des gleichen Moduls in einem build zu benutzen.
+- Ausnahme: `v0` und `v1`.
+
+## exclude, replace
+
+.code exclude.go.mod
+
+- `exclude`: Benutze niemals eine bestimmte Version (e.g. Sicherheitslücken).
+- `replace`: Ersetze ein (versioniertes) Module durch ein (versioniertes)
+  anderes (e.g. fork oder lokales hacken).
+- Wird ignoriert wenn es sich nicht um "Hauptmodul" ("main module") handelt.
+
+## retract
+
+.code retract.go.mod
+
+- "Zurückgezogene Versionen" werden nie automatisch als dependency hinzugefügt.
+- Wenn sie als depenency auftauchen, wird eine Warnung ausgegeben.
+
+## Module proxy
+
+- `curl https://proxy.golang.org/rsc.io/quote/@v/list`
+- `curl https://proxy.golang.org/rsc.io/quote/@v/v1.2.0.info`
+- `curl https://proxy.golang.org/rsc.io/quote/@v/v1.2.0.mod`
+- `curl https://proxy.golang.org/rsc.io/quote/@v/v1.2.0.zip`
+- `curl https://proxy.golang.org/rsc.io/quote/@latest`
+- `$GOPROXY`, `$GOPRIVATE`, `$GONOPROXY`
+
+## sumdb
+
+- `go.sum`:
+
+.code go.sum
+
+- Kann committed werden was verifiziert dass der gleiche Code wie upstream
+  benutzt wird
+- Checksum database: Append-only globale Datenbank von Versionshashes (vgl.
+  Certificate Transparency)
+- [Trillian](https://github.com/google/trillian)
+
