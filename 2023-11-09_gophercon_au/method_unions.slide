@@ -1,0 +1,301 @@
+# Constraining Complexity in the Generics Design
+9 Nov 2023
+
+Axel Wagner
+@Merovius@chaos.social
+Software Engineer, Infront Quant
+https://blog.merovius.de/
+
+: Hi. My Name is Axel Wagner and I'm loud on the internet.
+: I am going to tell you about a complication we encountered with a specific feature in the generics design.
+: And as a disclaimer, while I'm not part of the Go team, I am using the plural "we". That is just how I was raised.
+: If you are annoyed by that, just pretend I am talking about my favorite sports team: "we won the championship", even though *I* did not really help.
+
+## What we would like to do
+
+: Generics add a new syntax to interface declarations: Union elements. These can be used to constrain a type to be one of a specific list of types.
+: The main use case for that is to allow a generic function to use operators in their body: If all types satisfying a constraint allow addition, the function can use the plus operator.
+: But it could also be useful to allow a function to work both with simple and with composite types. For example, this function will call the String method of its argument, if it is available - otherwise, it knows that the argument is some kind of string and can return that using reflection.
+
+Using interfaces with methods in union elements:
+
+```
+type Stringish interface {
+	fmt.Stringer | ~string
+}
+
+func Stringify[S Stringish](v S) string {
+	if s, ok := any(v).(fmt.Stringer); ok {
+		return s.String()
+	}
+	return reflect.ValueOf(v).String()
+}
+```
+
+## The Problem
+
+: However, it turns out that the language currently disallows this code.
+: There is an implementation restriction, saying that a union cannot contain interfaces which specify methods, or embed any such interfaces.
+: The obvious question is "Why?". This is a very useful feature - so useful, indeed, that it was called out explicitly in the design document originally proposing generics.
+: To understand why it is in place, we have to learn a little bit of theory.
+
+However:
+
+    ./prog.go: cannot use fmt.Stringer in union (fmt.Stringer contains methods)
+
+[From the spec](https://go.dev/ref/spec#General_interfaces):
+
+> Implementation restriction: A union (with more than one term) cannot
+> contain the predeclared identifier `comparable` or interfaces that specify
+> methods, or embed `comparable` or interfaces that specify methods.
+
+## P vs. NP
+
+: There are many problems in computer science which we can efficiently solve. That is, we know an algorithm that can solve the problem in time that is polynomial in the length of its input.
+: This class of problem is called "P".
+: There are also problems whos solution can be efficiently checked. That is, we know an algorithm that can take a candidate solution and efficiently verify that it does indeed solve the problem.
+: This class of problem is called "NP".
+: You might have heard about the "P vs. NP" problem. That is simply the question of whether there are problems in the class NP, which are not in the class P. That is, whether there are problems which are hard easy to verify, but not easy to solve.
+: It is currently not known if that is the case, though we generally assume that it is.
+: To give an illustrative example: If I gave you you an integer N and two prime numbers P and Q and claimed that the product of P and Q is N, you could verify that very easily. But if I *only* give you N and ask you to give me its factors, that is much harder.
+
+- P: The class of problems which can be efficiently *solved*
+- NP: The class of problems with solutions that can be efficiently *verified*
+
+P vs. NP: Are there problems which are easy to check, but not easy to solve?
+
+Example: It is much easier to check if two integers multiply to a third, than
+to find all factors of an integer.
+
+## The Boolean Satisfiability Problem
+
+: One important problem in NP is the "boolean satisfiability problem". The problem is to find an algorithm which you can give any boolean formula, and it determines if there is some assignment to the variables in the formula, making it true.
+: If a formula is satisfiable, that is easy to prove: Just produce an assignment of truth-values that makes the formula true. So the problem is in NP.
+: However, we don't currently know any efficient algorithm to *solve* this problem - that is, we do not know how to determine such an assignment.
+: In fact, the reason this problem is so important and so well-known is that it is *at least as hard* as any other problem in NP, a property called "NP-completeness".
+: If you can solve this problem efficiently, you could solve *any* problem in NP efficiently. And thus we would learn that there *are* no hard to solve problems (in NP). So we currently assume there is no such algorithm.
+
+> "Given a formula of boolean variables, find an assignment that makes the
+> formula true"
+
+Example:
+
+	F(x,y,z) = (!x || z) && (y || z) && (x || !z)
+
+`(t,t,f)` does not *satisfy* the formula, but `(f,t,f)` does:
+
+	F(t,t,f) = (!t || f) && (t || f) && (t || !f) = f
+	F(f,t,f) = (!f || f) && (t || t) && (f || !f) = t
+
+The Boolean Satisfiability Problem is *NP-complete*: It is at least as hard as
+any other problem in NP.
+
+## Type Parameter Problems
+
+: When we use type parameters, the compiler has to prove a bunch of different problems.
+: One such problem is "does a given type satisfy a given interface?". This comes up when calling a generic function with a given type - the call should only be allowed, if the type satisfies the interface constraining the type parameter.
+: Another such problem is "given two constraints C1 and C2, does every type satisfying C2 also satisfy C1?". This comes up when calling a generic function with a type parameter. We must make sure that every possible type argument will still allow the call.
+: My claim is, that this second problem is co-NP-complete. The "co" here is a technicality: It means that instead of the "yes" answer being easily verifiable, it means a "no" answer is easily verifiable.
+: A simple way to prove a "no" answer would be to construct a type which satisfies C2, but does not satisfy C1. Both of these are easy to check, so a "no" answer is efficiently verifiable.
+: How would we prove this claim? By doing a so-called "reduction proof".
+: We demonstrate that if we had an algorithm to answer this question, we could use that algorithm to solve the SAT problem. This means our type-system problem must be "at least as hard" as the SAT problem. And as the SAT problem is NP-complete, that also means our type-system problem must be at least as hard as *any* problem in NP.
+
+When compiling Go programs, the compiler has to solve some decision problems:
+
+```
+func F[T C1]() {
+	G[int]() // does int implement C1?
+	G[T]()   // does satisfying C1 imply satisfying C2?
+}
+
+func G[T C2]() { /* … */ }
+```
+
+Claim: Deciding if every type satisfying `C2` also satisfies `C1` is
+co-NP-complete.
+
+co-NP-complete: The *complement* of an NP-complete problem.
+
+## Translating formulas into constraints
+
+: For our reduction proof, we must be able to take an "instance" of SAT - that is, a boolean formula - and construct an instance of our "type-problem". We do that by translating the boolean formula into a Go program, that our compiler would then have to check.
+: Each possible assignment to the inputs of the formula will correspond to a type. The methods of that type would represent if the variable is set in that assignment, or not.
+: So, if a type implements the `X` interface, then the variable `X` is set to true in the assignment it represents.
+: If a type implements the NotX interface, then the variable `X` is is set to false in the assignment it represents.
+: We can then directly translate our boolean formula into an interface type, using unions to represent the "or" operator and using line-breaks to represent the "and" operator. To implement that interface, a type must have the corresponding methods for all the terms, so it must represent a satisfying assignment to the formula.
+: However, there are two problems with this approach: For once, a type can have *neither* of the methods `X` or `NotX` - this would make it a bad assignment, as a boolean variable can't be "neither true nor false".
+: For another, a type could also have *both* methods `X` and `NotX`, which would be a similar problem, as a boolean variable can't be "both true and false".
+
+We can translate a formula into a Go constraint. First, we define two
+interfaces for each variable `X`:
+
+```
+type X interface{ X() }
+type NotX interface{ NotX() }
+```
+
+We then translate our Formula:
+
+    // Represents (!x || z) && (y || z) && (x || !z)
+    type Formula interface {
+    	NotX | Z
+    	Y | Z
+    	X | NotZ
+    }
+
+But:
+
+1. A type could have *neither* of `X` and `NotX`
+2. A type could have *both* of `X` and `NotX`
+
+## Law of excluded middle
+
+: To solve the first issue, we introduce a new interface.
+: It just states that a type must have either an X method or a NotX method. And either a Y method, or a NotY method. And so on.
+: To solve the second issue, we introduce a second auxillary interface. A type satisfying this one would have both an `X` and a `NotX` method, or both a `Y` and a `NotY` method, or so on.
+: A type representing a valid assignment must implement `AtLeastOne` and must *not* implement `Both`.
+
+We can define an interface that is satisfied by all types having at least one method for each variable:
+
+```
+type AtLeastOne interface {
+	X | NotX
+	Y | NotY
+	Z | NotZ
+}
+```
+
+And an interface that is satisfied by all types that have *both* methods for at least one variable:
+
+```
+type Both_X interface { X; NotX }
+type Both_Y interface { Y; NotY }
+type Both_Z interface { Z; NotZ }
+
+type Both interface {
+	Both_X | Both_Y | Both_Z
+}
+```
+
+## Finishing the reduction
+
+: To represent a valid assignment, a type would now have to satisfy Formula and implement AtLeastOne - saying it assigns either true or false to every variable - and *not* implement the Both interface.
+: It is a relatively simple transformation to see that this is equivalent to this program *not* compiling. This means our type-problem is actually the *complement* of the SAT problem: A program should compile if the formula is *not* satisfiable and it should be rejected if the formula *is* satisfiable.
+
+To finish our reduction, we ask the compiler to type-check this program:
+
+```go
+func F[T interface{ Formula; AtLeastOne }]() {
+	G[T]() // Allowed if and only if (Formula && AtLeastOne) => Both
+}
+func G[T Both]() {}
+```
+
+We have to *invert* the answer of our type-checker: The formula is satisfiable,
+if the compiler says the program is invalid:
+
+```
+    !( (Formula && AtLeastOne) =>  Both )
+<=> !(!(Formula && AtLeastOne) ||  Both )
+<=> !(!(Formula && AtLeastOne  && !Both))
+<=>     Formula && AtLeastOne  && !Both
+```
+
+## Going forward
+
+: Now that we know that just allowing methods in unions is co-NP-complete, we can ask ourselves how we will go on.
+: After all, we would still *like* to remove this restriction, at least for interesting practical cases.
+: So I will try to outline a couple of things we could do.
+
+## Ignoring the problem
+
+: One way to react to this knowledge would be to just accept it.
+: We could allow unions in methods and simply require the compiler to contain a SAT solver.
+: This is less wild than it may sound - modern SAT solvers can solve many practical SAT-instances and the compiler could just give up, if it can't prove or disprove that a program is correct after a certain time.
+: As far as I know, this is the approach chosen by C++ concepts.
+
+We could just accept the NP-completeness: Allow the compiler to "give up", if
+it can't prove correctness one way or another.
+
+## Limit the expressiveness of interfaces
+
+: Another way to solve this issue is to only allow *some* interfaces with methods.
+: In our proof, we reduced (general) SAT to the type problem. But there are some versions of SAT which *are* efficiently solvable.
+: For example, if the formula is given in Disjunctive Normal Form, SAT is efficiently solvable.
+: By carefully restricting in what places methods in unions are allowed, we can limit ourselves to a sub problem of SAT that is easier to solve.
+: For example, if we would only allow a single level of nesting, the resulting interface would be effectivel in DNF, where each term can be handled with existing algorithms.
+
+We know how to efficiently handle currently allowed interfaces.
+
+We know that there are efficient algorithms to solve SAT for formulas in
+*Disjunctive Normal Form* (DNF).
+
+If we allowed methods in unions *but only one level deep*, all interfaces would be in DNF.
+
+    // Allowed: Union of two currently allowed interfaces
+    type Stringish interface { ~string | fmt.Stringer }
+
+    // Disallowed: Stringish is currently not allowed
+    type ExtraStringish interface { Stringish | []byte }
+
+    // Allowed: Union of three currently allowed interfaces
+    type ExtraStringishPrime interface { ~string | fmt.Stringer | []byte }
+
+Other structural limitations could also work.
+
+## Make the type-checker conservative
+
+: A third option would be to make the type-checker conservative.
+: Our proof assumed that the compiler would have to reject *any* program that *could* be valid.
+: But we could also allow the compiler to reject some function calls, even if they would *theoretically* be safe.
+: If a program the user wants to write is rejected, they might have to express it differently, to help the compiler prove its validity.
+: This is fundamentally what type systems do, so is an attractive option.
+: But it is not a no-brainer. We still have to give an actual algorithm to determine *which* calls are allowed and which are not.
+
+We could have the compiler reject *some* programs that would technically be valid.
+
+We would still need to specify *some* algorithm:
+
+	type Stringish interface { ~string | fmt.Stringer }
+
+	func Marshal[T Stringish | ~bool | constraints.Integer](v T) string { /* … */ }
+
+	// Should probably be allowed
+	func F[T Stringish](v T) string {
+		return Marshal[T](v)
+	}
+
+	// Should also probaly be allowed
+	func G[T string|fmt.Stringer](v T) string {
+		return Marshal[T](v)
+	}
+
+## Future-proofing
+
+: There are also a couple of interesting proposals to extend the power of interfaces.
+: Some of these intersect with this feature, so we should keep them in mind when discussing this.
+: For example, there is a proposal by Rog Peppe to extend type switches to type-parameters.
+: These would allow code to implicitly define new constraint interfaces. We would have to make sure these implicitly defined interfaces are still feasible to type-check.
+
+We might want to [allow to type-switch on type parameters](https://github.com/golang/go/issues/45380):
+
+```
+func F[T Stringish](v T) string {
+	switch type T {
+	case fmt.Stringer:
+		// T is constrained by Stringish ∩ fmt.Stringer = fmt.Stringer
+		return v.String()
+	case ~string:
+		// T is constrained by Stringish ∩ ~string = ~string
+		return string(v)
+	}
+	panic("unreachable")
+}
+```
+
+## Summary
+
+- Simply allowing methods in unions would require a SAT solver
+- Structural restrictions on interfaces can help
+- So can a conservative type checker
+- The devil is in the details
