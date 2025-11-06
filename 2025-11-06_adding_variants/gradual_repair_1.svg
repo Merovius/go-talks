@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="226.2103mm"
+   height="105.10826mm"
+   viewBox="0 0 226.2103 105.10826"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="gradual_repair_1.svg"
+   inkscape:version="1.4.2 (ebf0e940d0, 2025-05-08)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     inkscape:zoom="0.58442937"
+     inkscape:cx="515.88783"
+     inkscape:cy="829.86932"
+     inkscape:window-width="1440"
+     inkscape:window-height="2510"
+     inkscape:window-x="3840"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1">
+    <marker
+       style="overflow:visible"
+       id="marker17"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path17" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="marker15"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path15" />
+    </marker>
+    <marker
+       style="overflow:visible"
+       id="Triangle"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135" />
+    </marker>
+    <rect
+       x="109.49683"
+       y="131.88016"
+       width="508.16208"
+       height="133.69502"
+       id="rect1" />
+    <rect
+       x="109.49683"
+       y="131.88016"
+       width="112.52159"
+       height="39.927013"
+       id="rect1-2" />
+    <marker
+       style="overflow:visible"
+       id="Triangle-4"
+       refX="0"
+       refY="0"
+       orient="auto-start-reverse"
+       inkscape:stockid="Triangle arrow"
+       markerWidth="1"
+       markerHeight="1"
+       viewBox="0 0 1 1"
+       inkscape:isstock="true"
+       inkscape:collect="always"
+       preserveAspectRatio="xMidYMid">
+      <path
+         transform="scale(0.5)"
+         style="fill:context-stroke;fill-rule:evenodd;stroke:context-stroke;stroke-width:1pt"
+         d="M 5.77,0 -2.88,5 V -5 Z"
+         id="path135-4" />
+    </marker>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-17.466468,-27.336213)">
+    <rect
+       style="fill:#ffffff;stroke:#000000;stroke-width:0.5;stroke-linecap:square;stroke-dasharray:none;fill-opacity:1"
+       id="rect5"
+       width="93.486839"
+       height="14.487061"
+       x="83.828194"
+       y="117.70741" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+       x="88.262924"
+       y="126.76829"
+       id="text5"><tspan
+         sodipodi:role="line"
+         id="tspan5"
+         style="stroke-width:0.264583"
+         x="88.262924"
+         y="126.76829">example.com/someprog</tspan></text>
+    <g
+       id="g17">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.499999;stroke-linecap:square;stroke-dasharray:none;fill-opacity:1"
+         id="rect6"
+         width="105.93667"
+         height="19.466993"
+         x="137.17441"
+         y="83.753349" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="141.9975"
+         y="95.433327"
+         id="text4"><tspan
+           sodipodi:role="line"
+           id="tspan4"
+           style="stroke-width:0.264583"
+           x="141.9975"
+           y="95.433327">github.com/bar/pkgb@v1.0</tspan></text>
+    </g>
+    <g
+       id="g19">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.499999;stroke-linecap:square;stroke-dasharray:none;fill-opacity:1"
+         id="rect6-6"
+         width="105.93667"
+         height="19.466993"
+         x="137.4901"
+         y="27.586218" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="146.68674"
+         y="39.266197"
+         id="text4-4"><tspan
+           sodipodi:role="line"
+           id="tspan4-7"
+           style="stroke-width:0.264583"
+           x="146.68674"
+           y="39.266197">golang.org/x/net/context</tspan></text>
+    </g>
+    <g
+       id="g20">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.499999;stroke-linecap:square;stroke-dasharray:none;fill-opacity:1"
+         id="rect6-5"
+         width="35"
+         height="19.466993"
+         x="53.184803"
+         y="27.586212" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="57.367649"
+         y="38.946068"
+         id="text4-45"><tspan
+           sodipodi:role="line"
+           id="tspan4-2"
+           style="stroke-width:0.264583"
+           x="57.367649"
+           y="38.946068">context</tspan></text>
+    </g>
+    <g
+       id="g18">
+      <rect
+         style="fill:#ffffff;stroke:#000000;stroke-width:0.499999;stroke-linecap:square;stroke-dasharray:none;fill-opacity:1"
+         id="rect6-2"
+         width="105.93667"
+         height="19.466993"
+         x="17.716469"
+         y="84.154587" />
+      <text
+         xml:space="preserve"
+         style="font-size:7.05556px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;stroke-width:0.264583"
+         x="19.426918"
+         y="95.834564"
+         id="text4-6"><tspan
+           sodipodi:role="line"
+           id="tspan4-3"
+           style="stroke-width:0.264583"
+           x="19.426918"
+           y="95.834564">codeberg.org/foo/pkga@v1.0</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle)"
+       d="M 91.874998,117.48475 87.338368,106.6622"
+       id="path13"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Triangle-4)"
+       d="m 154.2238,117.37041 4.53663,-10.82255"
+       id="path13-7"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15)"
+       d="m 168.75168,83.413808 0.10063,-32.815429"
+       id="path14"
+       sodipodi:nodetypes="cc" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker17)"
+       d="M 112.38794,83.979709 135.60938,49.814265"
+       id="path16"
+       sodipodi:nodetypes="cc" />
+  </g>
+</svg>
